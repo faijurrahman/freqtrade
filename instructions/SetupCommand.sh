@@ -79,6 +79,8 @@ freqtrade backtesting --config config.json --strategy SampleStrategy --timerange
 freqtrade backtesting --config config.json --strategy SampleStrategy --timerange=20210101-20211001 --timeframe=4h
 
 
+
 # Start Trading but in dryrun only to test the WebUI
 freqtrade trade --config config.json --strategy SampleStrategy
+freqtrade trade --config config.json --strategy ReinforcedSmoothScalp --strategy-path user_data/strategies/berlinguyinca
 # From browser go to page: http://127.0.0.1:8080/
