@@ -55,6 +55,7 @@ source ./.env/bin/activate
 freqtrade --help
 
 # Create user_data & config.json and then update followings:
+# Details of config can be found here: https://www.freqtrade.io/en/stable/configuration/
 freqtrade create-userdir --userdir user_data
 freqtrade new-config --config config.json
 # Update config.json: exchange->pair_whitelist: ["BTC/USDT", "ETH/USDT"]
@@ -73,7 +74,7 @@ freqtrade download-data --config config.json --days 999 -t 5m 15m 30m 1h 2h 4h 1
 freqtrade list-data
 
 
-# Backtesting the data
+# Backtesting the data. Details document of Backtesting: https://www.freqtrade.io/en/stable/backtesting/
 freqtrade backtesting --config config.json --strategy SampleStrategy
 freqtrade backtesting --config config.json --strategy SampleStrategy --timerange=20210101-20211001
 freqtrade backtesting --config config.json --strategy SampleStrategy --timerange=20210101-20211001 --timeframe=4h
@@ -81,7 +82,12 @@ freqtrade backtesting --config config.json --strategy SampleStrategy --timerange
 
 
 # Start Trading but in dryrun only to test the WebUI
+# Details help of WebUI here: https://www.freqtrade.io/en/stable/rest-api
 freqtrade install-ui
 freqtrade trade --config config.json --strategy SampleStrategy
 freqtrade trade --config config.json --strategy ReinforcedSmoothScalp --strategy-path user_data/strategies/berlinguyinca
 # From browser go to page: http://127.0.0.1:8080/
+
+# Start trading in live mode.
+# Details manual of live trading here: https://www.freqtrade.io/en/stable/bot-usage/
+freqtrade trade --config config.json --strategy ReinforcedSmoothScalp --strategy-path user_data/strategies/berlinguyinca
