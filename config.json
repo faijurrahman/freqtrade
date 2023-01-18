@@ -80,8 +80,8 @@
         "jwt_secret_key": "6fdfb98403b8958b7ce5b61b230ca0ec8567f9e09db53824d04620822a164864",
         "ws_token": "YjpD0m_FjJMS71jXuGSi5zEGXtAWGHNB5A",
         "CORS_origins": [],
-        "username": "freqtrader",
-        "password": "Spirit_17"
+        "username": "faijur",
+        "password": "pass123"
     },
     "bot_name": "freqtrade",
     "initial_state": "running",
