@@ -117,12 +117,14 @@ freqtrade show-trades --db-url sqlite:///tradesv3.dryrun.sqlite
 # FreqAI Trade Related
 #===================================================================================================================
 # Details document here: https://www.freqtrade.io/en/stable/freqai
+freqtrade trade --config config_examples/config_freqai.example.json --strategy FreqaiExampleStrategy --freqaimodel LightGBMRegressor --strategy-path freqtrade/templates
 
 # Running FreqAI: https://www.freqtrade.io/en/stable/freqai-running
-freqtrade trade --strategy FreqaiExampleStrategy --config config_freqai.example.json --freqaimodel LightGBMRegressor
+freqtrade trade  --config config_examples/config_freqai.example.json --strategy FreqaiExampleStrategy --freqaimodel LightGBMRegressor --strategy-path freqtrade/templates
+freqtrade backtesting  --config config_examples/config_freqai.example.json --strategy FreqaiExampleStrategy --freqaimodel LightGBMRegressor --strategy-path freqtrade/templates --timerange 20210501-20210701
 
 # Reinforcement Learning: https://www.freqtrade.io/en/stable/freqai-reinforcement-learning
-freqtrade trade --freqaimodel ReinforcementLearner --strategy MyRLStrategy --config config.json
+freqtrade trade --config config.json --strategy MyRLStrategy --freqaimodel ReinforcementLearner 
 
 
 
@@ -134,7 +136,9 @@ freqtrade backtesting --config config.json --strategy SampleStrategy
 freqtrade backtesting --config config.json --strategy SampleStrategy --timerange=20210101-20211001
 freqtrade backtesting --config config.json --strategy SampleStrategy --timerange=20210101-20211001 --timeframe=4h
 freqtrade backtesting-show ??
-freqtrade backtesting-analysis ??
+
+# https://www.freqtrade.io/en/stable/advanced-backtesting/#analyze-the-buyentry-and-sellexit-tags
+freqtrade backtesting-analysis --config config.json --analysis-groups 0 1 2 3 4
 
 # Backtesting with WebUI
 freqtrade webserver --config config.json
