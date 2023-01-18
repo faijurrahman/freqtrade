@@ -53,6 +53,7 @@ cd freqtrade
 # Activate venv. Use this command every time you restart Ubuntu
 source ./.env/bin/activate
 freqtrade --help
+# Please check here for all commands: https://www.freqtrade.io/en/stable/utils/
 
 # Create user_data & config.json and then update followings:
 # Details of config can be found here: https://www.freqtrade.io/en/stable/configuration/
