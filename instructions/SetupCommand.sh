@@ -79,6 +79,11 @@ freqtrade list-data
 freqtrade backtesting --config config.json --strategy SampleStrategy
 freqtrade backtesting --config config.json --strategy SampleStrategy --timerange=20210101-20211001
 freqtrade backtesting --config config.json --strategy SampleStrategy --timerange=20210101-20211001 --timeframe=4h
+freqtrade backtesting-show ??
+freqtrade backtesting-analysis ??
+
+# Backtesting with WebUI
+freqtrade webserver --config config.json
 
 
 
@@ -92,3 +97,7 @@ freqtrade trade --config config.json --strategy ReinforcedSmoothScalp --strategy
 # Start trading in live mode.
 # Details manual of live trading here: https://www.freqtrade.io/en/stable/bot-usage/
 freqtrade trade --config config.json --strategy ReinforcedSmoothScalp --strategy-path user_data/strategies/berlinguyinca
+
+
+# Investigating old trades
+freqtrade show-trades --db-url sqlite:///tradesv3.dryrun.sqlite
