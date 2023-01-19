@@ -106,7 +106,7 @@ freqtrade trade --config config.json --strategy ReinforcedSmoothScalp --strategy
 
 # Start trading in live mode.
 # Details manual of live trading here: https://www.freqtrade.io/en/stable/bot-usage/
-freqtrade trade --config config.json --strategy ReinforcedSmoothScalp --strategy-path user_data/strategies/berlinguyinca -vv
+freqtrade trade --config live_config.json --strategy ReinforcedSmoothScalp --strategy-path user_data/strategies/berlinguyinca -vv
 
 
 # Investigating old trades
