@@ -28,6 +28,7 @@
 
 
 
+
 #===================================================================================================================
 # Git Related
 #===================================================================================================================
@@ -80,25 +81,32 @@ freqtrade new-config --config config.json
 # Update config.json: exchange->pair_whitelist: ["BTC/USDT", "ETH/USDT"]
 # Update config.json: pairlists->method: "StaticPairList",
 # Please follow the video tutorial for more details: https://youtu.be/VHvikJmQrVM
+
+# Some Usefull command for git
+git status
+git diff config.json
 git add -f config.json
 git commit -m "Adding default config.json"
 git pull
 git push
 
 
-# Download data with the following command
-freqtrade list-timeframes
-freqtrade download-data --config config.json --days 999 -t 5m 15m 30m 1h 2h 4h 1d 1w
-# The data will be in user_dat/data/binance folder
-freqtrade list-data
 
 
-# Prepare environment
-# export FREQTRADE__TELEGRAM__CHAT_ID <telegramchatid>
+#===================================================================================================================
+# Prepare environment, WebUI, Telegram, Database etc.
+#===================================================================================================================
+# Setup env variable for Telegram and Exchange
+# Details here: https://www.freqtrade.io/en/latest/configuration/#environment-variables
+# export FREQTRADE__TELEGRAM__CHAT_ID <telegramchatid>  # Please check here: https://www.freqtrade.io/en/latest/telegram-usage/
 # export FREQTRADE__TELEGRAM__TOKEN <telegramToken>
 # export FREQTRADE__EXCHANGE__KEY <yourExchangeKey>
 # export FREQTRADE__EXCHANGE__SECRET <yourExchangeSecret>
-source freqtrade.env
+source .env/freqtrade.env
+
+# Details help of WebUI here: https://www.freqtrade.io/en/stable/rest-api
+freqtrade install-ui # Need to run only once
+
 
 
 
@@ -106,8 +114,6 @@ source freqtrade.env
 # Trade Command Related
 #===================================================================================================================
 # Start Trading but in dryrun only to test the WebUI
-# Details help of WebUI here: https://www.freqtrade.io/en/stable/rest-api
-freqtrade install-ui
 freqtrade trade --config config.json --strategy SampleStrategy -vv
 freqtrade trade --config config.json --strategy ReinforcedSmoothScalp --strategy-path user_data/strategies/berlinguyinca -vv
 # From browser go to page: http://127.0.0.1:8080/
@@ -119,6 +125,8 @@ freqtrade trade --config live_config.json --strategy ReinforcedSmoothScalp --str
 
 # Investigating old trades
 freqtrade show-trades --db-url sqlite:///tradesv3.dryrun.sqlite
+
+
 
 
 #===================================================================================================================
@@ -136,9 +144,20 @@ freqtrade trade --config config.json --strategy MyRLStrategy --freqaimodel Reinf
 
 
 
+
 #===================================================================================================================
 # Backtesting Related
 #===================================================================================================================
+# Before backtesting we need to download data for target timeframse
+# Download data with the following command
+freqtrade list-timeframes
+freqtrade download-data --config config.json --days 999 -t 5m 15m 30m 1h 2h 4h 1d 1w
+# The data will be in user_dat/data/binance folder
+freqtrade list-data
+
+# Backtesting with WebUI
+freqtrade webserver --config config.json
+
 # Backtesting the data. Details document of Backtesting: https://www.freqtrade.io/en/stable/backtesting/
 freqtrade backtesting --config config.json --strategy SampleStrategy -vv
 freqtrade backtesting --config config.json --strategy SampleStrategy --timerange=20210101-20211001 -vv
@@ -148,8 +167,6 @@ freqtrade backtesting-show ??
 # https://www.freqtrade.io/en/stable/advanced-backtesting/#analyze-the-buyentry-and-sellexit-tags
 freqtrade backtesting-analysis --config config.json --analysis-groups 0 1 2 3 4
 
-# Backtesting with WebUI
-freqtrade webserver --config config.json
 
 
 
