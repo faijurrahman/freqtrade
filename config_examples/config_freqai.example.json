@@ -9,6 +9,7 @@
     "dry_run": true,
     "timeframe": "3m",
     "dry_run_wallet": 1000,
+    "db_url": "sqlite:///tradesv3.dryrun.sqlite",
     "cancel_open_orders_on_exit": true,
     "unfilledtimeout": {
         "entry": 10,
@@ -21,11 +22,18 @@
         "ccxt_config": {},
         "ccxt_async_config": {},
         "pair_whitelist": [
-            "1INCH/USDT",
-            "ALGO/USDT"
+        "BTC/USDT",
+        "ETH/USDT",
         ],
-        "pair_blacklist": []
+        "pair_blacklist": [
+            "BNB/.*"
+        ]
     },
+    "pairlists": [
+        {
+            "method": "StaticPairList",
+        }
+    ],
     "entry_pricing": {
         "price_side": "same",
         "use_order_book": true,
@@ -41,11 +49,6 @@
         "use_order_book": true,
         "order_book_top": 1
     },
-    "pairlists": [
-        {
-            "method": "StaticPairList"
-        }
-    ],
     "freqai": {
         "enabled": true,
         "purge_old_models": true,
@@ -81,7 +84,38 @@
         },
         "model_training_parameters": {}
     },
-    "bot_name": "",
+    "edge": {
+        "enabled": false,
+        "process_throttle_secs": 3600,
+        "calculate_since_number_of_days": 7,
+        "allowed_risk": 0.01,
+        "stoploss_range_min": -0.01,
+        "stoploss_range_max": -0.1,
+        "stoploss_range_step": -0.01,
+        "minimum_winrate": 0.60,
+        "minimum_expectancy": 0.20,
+        "min_trade_number": 10,
+        "max_trade_duration_minute": 1440,
+        "remove_pumps": false
+    },
+    "telegram": {
+        "enabled": false,
+        "token": "",
+        "chat_id": ""
+    },
+    "api_server": {
+        "enabled": true,
+        "listen_ip_address": "127.0.0.1",
+        "listen_port": 8080,
+        "verbosity": "error",
+        "enable_openapi": false,
+        "jwt_secret_key": "6fdfb98403b8958b7ce5b61b230ca0ec8567f9e09db53824d04620822a164864",
+        "ws_token": "YjpD0m_FjJMS71jXuGSi5zEGXtAWGHNB5A",
+        "CORS_origins": [],
+        "username": "faijur",
+        "password": "pass123"
+    },
+    "bot_name": "FaijurTest",
     "force_entry_enable": true,
     "initial_state": "running",
     "internals": {
