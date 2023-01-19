@@ -84,10 +84,11 @@ freqtrade new-config --config config.json
 
 # Some Usefull command for git
 git status
+git log
 git diff config.json
 git add -f config.json
 git commit -m "Adding default config.json"
-git pull
+git pull --rebase
 git push
 
 
