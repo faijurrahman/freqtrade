@@ -100,13 +100,13 @@ freqtrade list-data
 # Start Trading but in dryrun only to test the WebUI
 # Details help of WebUI here: https://www.freqtrade.io/en/stable/rest-api
 freqtrade install-ui
-freqtrade trade --config config.json --strategy SampleStrategy
-freqtrade trade --config config.json --strategy ReinforcedSmoothScalp --strategy-path user_data/strategies/berlinguyinca
+freqtrade trade --config config.json --strategy SampleStrategy -vv
+freqtrade trade --config config.json --strategy ReinforcedSmoothScalp --strategy-path user_data/strategies/berlinguyinca -vv
 # From browser go to page: http://127.0.0.1:8080/
 
 # Start trading in live mode.
 # Details manual of live trading here: https://www.freqtrade.io/en/stable/bot-usage/
-freqtrade trade --config config.json --strategy ReinforcedSmoothScalp --strategy-path user_data/strategies/berlinguyinca
+freqtrade trade --config config.json --strategy ReinforcedSmoothScalp --strategy-path user_data/strategies/berlinguyinca -vv
 
 
 # Investigating old trades
@@ -132,9 +132,9 @@ freqtrade trade --config config.json --strategy MyRLStrategy --freqaimodel Reinf
 # Backtesting Related
 #===================================================================================================================
 # Backtesting the data. Details document of Backtesting: https://www.freqtrade.io/en/stable/backtesting/
-freqtrade backtesting --config config.json --strategy SampleStrategy
-freqtrade backtesting --config config.json --strategy SampleStrategy --timerange=20210101-20211001
-freqtrade backtesting --config config.json --strategy SampleStrategy --timerange=20210101-20211001 --timeframe=4h
+freqtrade backtesting --config config.json --strategy SampleStrategy -vv
+freqtrade backtesting --config config.json --strategy SampleStrategy --timerange=20210101-20211001 -vv
+freqtrade backtesting --config config.json --strategy SampleStrategy --timerange=20210101-20211001 --timeframe=4h -vv
 freqtrade backtesting-show ??
 
 # https://www.freqtrade.io/en/stable/advanced-backtesting/#analyze-the-buyentry-and-sellexit-tags
@@ -151,8 +151,8 @@ freqtrade webserver --config config.json
 # Details here: https:https:
 #      //www.freqtrade.io/en/stable/hyperopt 
 #      //www.freqtrade.io/en/stable/utils
-freqtrade hyperopt-list
-freqtrade hyperopt-list --profitable --no-details
+freqtrade hyperopt-list 
+freqtrade hyperopt-list --profitable --no-details 
 freqtrade hyperopt-show -n 168
 freqtrade hyperopt-show --best -n -1 --print-json --no-header
 
