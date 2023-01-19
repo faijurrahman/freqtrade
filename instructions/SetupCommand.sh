@@ -93,6 +93,14 @@ freqtrade download-data --config config.json --days 999 -t 5m 15m 30m 1h 2h 4h 1
 freqtrade list-data
 
 
+# Prepare environment
+# export FREQTRADE__TELEGRAM__CHAT_ID <telegramchatid>
+# export FREQTRADE__TELEGRAM__TOKEN <telegramToken>
+# export FREQTRADE__EXCHANGE__KEY <yourExchangeKey>
+# export FREQTRADE__EXCHANGE__SECRET <yourExchangeSecret>
+source freqtrade.env
+
+
 
 #===================================================================================================================
 # Trade Command Related
