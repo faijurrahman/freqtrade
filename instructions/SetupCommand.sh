@@ -91,6 +91,10 @@ git commit -m "Adding default config.json"
 git pull --rebase
 git push
 
+# Make the local modification config.json untracked to avoid accidentally submitting sensitive account infos
+git update-index --skip-worktree config.json
+git update-index --skip-worktree live_config.json
+
 
 
 
