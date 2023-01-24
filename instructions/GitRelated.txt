@@ -1,0 +1,61 @@
+#===================================================================================================================
+# Git Init/Config Related
+#===================================================================================================================
+git init
+git remote -v
+git remote add origin https://github.com/faijurrahman/freqtrade.git
+git config --global user.email "faijur@gmail.com"
+git config --global user.name "Faijur Rahman"
+git clone https://github.com/faijurrahman/freqtrade.git
+
+
+#===================================================================================================================
+# Git Generic Commands
+#===================================================================================================================
+ Some Usefull command for git
+git status
+git diff config.json
+git add -f config.json
+git commit -m "Adding default config.json"
+git pull --rebase
+git push
+
+# Make the local modification config.json untracked to avoid accidentally submitting sensitive account infos
+git update-index --skip-worktree config.json
+git update-index --skip-worktree live_config.json
+
+
+#===================================================================================================================
+# Git add, commit and pull-push Related
+#===================================================================================================================
+git status
+git diff config.json
+git add -f config.json
+git commit -m "Adding default config.json"
+git pull --rebase
+git push
+
+#===================================================================================================================
+# Git Log and History Related
+#===================================================================================================================
+git log --help
+git log
+git log --graph --decorate --pretty=oneline --abbrev-commit
+
+
+#===================================================================================================================
+# Git Branch Related
+#===================================================================================================================
+git branch --help
+
+
+#===================================================================================================================
+# Git Rebase Related
+#===================================================================================================================
+git rebase --help
+
+
+#===================================================================================================================
+# Git Squash Related
+#===================================================================================================================
+
