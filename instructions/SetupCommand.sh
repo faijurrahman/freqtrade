@@ -117,9 +117,9 @@ freqtrade install-ui # Need to run only once
 # UserDir and Strategy Generation Command Related
 #===================================================================================================================
 freqtrade new-strategy --help
-freqtrade new-strategy --template minimal --userdir . --strategy faijur_minimal
-freqtrade new-strategy --template full --userdir . --strategy faijur_full
-freqtrade new-strategy --template advanced --userdir . --strategy faijur_advanced
+freqtrade new-strategy --template minimal --userdir . --strategy minimal
+freqtrade new-strategy --template full --userdir . --strategy full
+freqtrade new-strategy --template advanced --userdir . --strategy advanced
 
 
 
