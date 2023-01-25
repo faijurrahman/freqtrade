@@ -91,6 +91,7 @@ git stash push/save  # To temporarily store all the modified tracked files
 git stash pop        # To restore the most recently stashed files
 git stash list       # To list all stashed changesets
 git stash drop       # To discard the most recently stashed changeset
+git ls-tree HEAD     # To list all the tracked files in current directory
 
 
 #===================================================================================================================
