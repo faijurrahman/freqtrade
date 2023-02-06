@@ -33,6 +33,9 @@ class ReinforcedSmoothScalp(IStrategy):
     # the shorter the better
     timeframe = '1m'
 
+    # By default this strategy should use Position Adjustments
+    position_adjustment_enable = True
+    
     # resample factor to establish our general trend. Basically don't buy if a trend is not given
     resample_factor = 5
 
