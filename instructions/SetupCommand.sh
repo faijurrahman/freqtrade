@@ -37,6 +37,7 @@ git remote -v
 git remote add origin https://github.com/faijurrahman/freqtrade.git
 git config --global user.email "faijur@gmail.com"
 git config --global user.name "Faijur Rahman"
+git config credential.helper store
 
 
 
@@ -128,12 +129,12 @@ freqtrade new-strategy --template advanced --userdir . --strategy advanced
 #===================================================================================================================
 # Start Trading but in dryrun only to test the WebUI
 freqtrade trade --config config.json --strategy SampleStrategy -vv
-freqtrade trade --config config.json --strategy ReinforcedSmoothScalp --strategy-path user_data/strategies/berlinguyinca -vv
+freqtrade trade --config config.json --strategy ReinforcedSmoothScalp --strategy-path user_data/strategies/faijur -vv
 # From browser go to page: http://127.0.0.1:8080/
 
 # Start trading in live mode.
 # Details manual of live trading here: https://www.freqtrade.io/en/stable/bot-usage/
-freqtrade trade --config live_config.json --strategy ReinforcedSmoothScalp --strategy-path user_data/strategies/berlinguyinca -vv
+freqtrade trade --config live_config.json --strategy ReinforcedSmoothScalp --strategy-path user_data/strategies/faijur -vv
 
 
 # Investigating old trades
