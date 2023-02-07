@@ -6,6 +6,8 @@ from freqtrade.strategy import BooleanParameter, IntParameter
 from pandas import DataFrame
 from technical.util import resample_to_interval, resampled_merge
 import numpy  # noqa
+import datetime
+from typing import Optional
 # --------------------------------
 import talib.abstract as ta
 import freqtrade.vendor.qtpylib.indicators as qtpylib
@@ -155,4 +157,4 @@ class ReinforcedSmoothScalp(IStrategy):
         :param side: 'long' or 'short' - indicating the direction of the proposed trade
         :return: A leverage amount, which is between 1.0 and max_leverage.
         """
-        return 2.0
+        return 5.0
