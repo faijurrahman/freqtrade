@@ -91,6 +91,19 @@
             "test_size": 0.33,
             "random_state": 1
         },
+        "rl_config": {
+            "train_cycles": 25,
+            "add_state_info": true,
+            "max_trade_duration_candles": 300,
+            "max_training_drawdown_pct": 0.02,
+            "cpu_count": 8,
+            "model_type": "PPO",
+            "policy_type": "MlpPolicy",
+            "model_reward_parameters": {
+                "rr": 1,
+                "profit_aim": 0.025
+            }
+        },
         "model_training_parameters": {}
     },
     "edge": {
