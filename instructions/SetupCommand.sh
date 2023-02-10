@@ -147,14 +147,18 @@ freqtrade show-trades --db-url sqlite:///tradesv3.dryrun.sqlite
 # FreqAI Trade Related
 #===================================================================================================================
 # Details document here: https://www.freqtrade.io/en/stable/freqai
-freqtrade trade --config config_examples/config_freqai.example.json --strategy FreqaiExampleStrategy --freqaimodel LightGBMRegressor --strategy-path freqtrade/templates
+# List of Models: ReinforcementLearner, LightGBMRegressor, CatboostClassifier, CatboostRegressor, XGBoostRegressor, XGBoostRegressorMultiTarget, XGBoostRFRegressor etc.
+freqtrade trade --freqaimodel ReinforcementLearner --config live_config.json --strategy FreqaiExampleHybridStrategy --strategy-path user_data/strategies/faijur
+freqtrade trade --freqaimodel LightGBMRegressor --config live_config.json --strategy FreqaiExampleHybridStrategy --strategy-path user_data/strategies/faijur
+freqtrade trade --freqaimodel LightGBMRegressor --config live_config.json --strategy FreqaiExampleStrategy --strategy-path user_data/strategies/faijur
+freqtrade trade --freqaimodel LightGBMRegressor --config config_examples/config_freqai.example.json --strategy FreqaiExampleStrategy --strategy-path freqtrade/templates
 
 # Running FreqAI: https://www.freqtrade.io/en/stable/freqai-running
-freqtrade trade  --config config_examples/config_freqai.example.json --strategy FreqaiExampleStrategy --freqaimodel LightGBMRegressor --strategy-path freqtrade/templates
-freqtrade backtesting  --config config_examples/config_freqai.example.json --strategy FreqaiExampleStrategy --freqaimodel LightGBMRegressor --strategy-path freqtrade/templates --timerange 20210501-20210701
+freqtrade trade --freqaimodel LightGBMRegressor --config config_examples/config_freqai.example.json --strategy FreqaiExampleStrategy --strategy-path freqtrade/templates
+freqtrade backtesting --freqaimodel LightGBMRegressor --config config_examples/config_freqai.example.json --strategy FreqaiExampleStrategy --strategy-path freqtrade/templates --timerange 20210501-20210701
 
 # Reinforcement Learning: https://www.freqtrade.io/en/stable/freqai-reinforcement-learning
-freqtrade trade --config config.json --strategy MyRLStrategy --freqaimodel ReinforcementLearner 
+freqtrade trade --freqaimodel ReinforcementLearner --config config.json --strategy MyRLStrategy
 
 
 
