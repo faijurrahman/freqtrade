@@ -1,39 +1,23 @@
+
 {
-    "trading_mode": "futures",
-    "margin_mode": "isolated",
     "max_open_trades": 5,
     "stake_currency": "USDT",
-    "stake_amount": 200,
-    "tradable_balance_ratio": 1,
+    "stake_amount": "unlimited",
+    "tradable_balance_ratio": 0.5,
     "fiat_display_currency": "USD",
     "dry_run": true,
-    "timeframe": "3m",
     "dry_run_wallet": 1000,
-    "db_url": "sqlite:///tradesv3.dryrun.sqlite",
-    "cancel_open_orders_on_exit": true,
+    "timeframe": "5m",
+    "db_url": "sqlite:///tradesv.binance.live.sqlite",
+    "cancel_open_orders_on_exit": false,
+    "trading_mode": "futures",
+    "margin_mode": "isolated",
     "unfilledtimeout": {
-        "entry": 10,
-        "exit": 30
+        "entry": 30,
+        "exit": 30,
+        "exit_timeout_count": 0,
+        "unit": "seconds"
     },
-    "exchange": {
-        "name": "binance",
-        "key": "",
-        "secret": "",
-        "ccxt_config": {},
-        "ccxt_async_config": {},
-        "pair_whitelist": [
-        "BTC/USDT",
-        "ETH/USDT",
-        ],
-        "pair_blacklist": [
-            "BNB/.*"
-        ]
-    },
-    "pairlists": [
-        {
-            "method": "StaticPairList",
-        }
-    ],
     "entry_pricing": {
         "price_side": "same",
         "use_order_book": true,
@@ -44,11 +28,36 @@
             "bids_to_ask_delta": 1
         }
     },
-    "exit_pricing": {
-        "price_side": "other",
+    "exit_pricing":{
+        "price_side": "same",
         "use_order_book": true,
         "order_book_top": 1
     },
+    "exchange": {
+        "name": "binance",
+        "key": "",
+        "secret": "",
+        "leverage ": 2,
+        "max_leverage ": 5,
+        "ccxt_config": {},
+        "ccxt_async_config": {},
+        "pair_whitelist": [
+        "BTC/USDT",
+        "ETH/USDT"
+//        "FTM/USDT",
+//        "GRT/USDT",
+//        "APT/USDT",
+        ],
+        "pair_blacklist": ["BNB/.*"]
+    },
+    "pairlists": [
+        {
+        "method": "StaticPairList",
+//       "method": "VolumePairList",
+//        "number_assets": 10,
+//        "sort_key": "quoteVolume"
+        }
+    ],
     "freqai": {
         "enabled": true,
         "purge_old_models": true,
@@ -58,7 +67,7 @@
         "identifier": "uniqe-id",
         "feature_parameters": {
             "include_timeframes": [
-                "3m",
+                "5m",
                 "15m",
                 "1h"
             ],
@@ -99,13 +108,41 @@
         "remove_pumps": false
     },
     "telegram": {
-        "enabled": false,
+        "enabled": true,
         "token": "",
-        "chat_id": ""
+        "chat_id": "",
+        "allow_custom_messages": true,
+        "notification_settings": {
+            "status": "on",
+            "warning": "on",
+            "startup": "off",
+            "entry": "silent",
+            "entry_fill": "on",
+            "entry_cancel": "on",
+            "exit": {
+                "roi": "on",
+                "emergency_exit": "on",
+                "force_exit": "on",
+                "exit_signal": "silent",
+                "trailing_stop_loss": "on",
+                "stop_loss": "on",
+                "stoploss_on_exchange": "on",
+                "custom_exit": "silent",
+                "partial_exit": "on"
+            },
+            "exit_cancel": "on",
+            "exit_fill": "off",
+            "protection_trigger": "off",
+            "protection_trigger_global": "on",
+            "strategy_msg": "on",
+            "show_candle": "ohlc"
+        },
+        "reload": true,
+        "balance_dust_level": 0.01
     },
     "api_server": {
         "enabled": true,
-        "listen_ip_address": "127.0.0.1",
+        "listen_ip_address": "127.0.0.2",
         "listen_port": 8080,
         "verbosity": "error",
         "enable_openapi": false,
@@ -115,9 +152,9 @@
         "username": "faijur",
         "password": "pass123"
     },
-    "bot_name": "FaijurTest",
-    "force_entry_enable": true,
+    "bot_name": "BinanceLive",
     "initial_state": "running",
+    "force_entry_enable": true,
     "internals": {
         "process_throttle_secs": 5
     }
