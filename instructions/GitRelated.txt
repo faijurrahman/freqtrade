@@ -109,7 +109,7 @@ git branch --help
 git branch [branch name]       # To create a new branch
 git branch -d [branch name]    # To delete a feature branch
 git checkout [branch name]     # To switch from one branch to another
-git checkout -b [branch name]  # To create a new branch and also switche to it
+git checkout -b [branch name]  # To create a new branch and also switch to it
 git merge [branch name]        # To merge the branch to the current branch
 git rebase [branch name]       # To merge the branch to the current branch and create linear history
 
