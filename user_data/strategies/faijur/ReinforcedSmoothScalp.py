@@ -30,7 +30,7 @@ class ReinforcedSmoothScalp(IStrategy):
     # This attribute will be overridden if the config file contains "stoploss"
     # should not be below 3% loss
 
-    stoploss = -0.1
+    stoploss = -.10
     # Optimal timeframe for the strategy
     # the shorter the better
     timeframe = '1m'
@@ -157,4 +157,4 @@ class ReinforcedSmoothScalp(IStrategy):
         :param side: 'long' or 'short' - indicating the direction of the proposed trade
         :return: A leverage amount, which is between 1.0 and max_leverage.
         """
-        return 5.0
+        return 2.0
