@@ -160,6 +160,8 @@ freqtrade backtesting --freqaimodel LightGBMRegressor --config config_examples/c
 # Reinforcement Learning: https://www.freqtrade.io/en/stable/freqai-reinforcement-learning
 freqtrade trade --freqaimodel ReinforcementLearner --config config.json --strategy MyRLStrategy
 
+tensorboard --logdir user_data/models/unique-id
+
 
 
 
