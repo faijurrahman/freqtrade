@@ -201,3 +201,11 @@ freqtrade hyperopt-list --profitable --no-details
 freqtrade hyperopt-show -n 168
 freqtrade hyperopt-show --best -n -1 --print-json --no-header
 
+
+
+#===================================================================================================================
+# Debug Related
+#===================================================================================================================
+trade --freqaimodel ReinforcementLearner --config C:\Users\faijur\Documents\GitHub\freqtrade-fai\config_examples\config_freqai.example.json --strategy FreqaiExampleHybridStrategy --strategy-path C:\Users\faijur\Documents\GitHub\freqtrade-fai\user_data\strategies\faijur --userdir C:\Users\faijur\Documents\GitHub\freqtrade-fai\user_data
+trade --config C:\Users\faijur\Documents\GitHub\freqtrade-fai\user_data\config.json --strategy ReinforcedSmoothScalp --strategy-path C:\Users\faijur\Documents\GitHub\freqtrade-fai\user_data\strategies\faijur --userdir C:\Users\faijur\Documents\GitHub\freqtrade-fai\user_data
+
