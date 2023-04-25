@@ -140,3 +140,12 @@ git gui  # To commit/stash changes
 git cherry-pick --help
 git cherry-pick <Commit1> <Commit2> <...>
 git rebase -i HEAD~4
+
+
+#===================================================================================================================
+# Git Patch Related
+#===================================================================================================================
+git diff            # For unstaged changes.
+git diff --cached   # For staged changes.
+git diff HEAD       # For both staged and unstaged changes.
+git format-patch -1 <commit_sha>  # In order to create Git patch file for a specific commit
